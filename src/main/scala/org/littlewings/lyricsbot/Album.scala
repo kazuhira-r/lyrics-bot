@@ -2,9 +2,16 @@ package org.littlewings.lyricsbot
 
 import scala.util.Random
 
+import java.security.SecureRandom
+
 import com.typesafe.config.{Config, ConfigFactory}
 
 object Album {
+  private val RANDOM: Random = new Random(new SecureRandom)
+
+  private def nextInt(n: Int): Int =
+    RANDOM.nextInt(n)
+
   def fromConfig(artist: Artist, albumNameAlias: String): Album =
     new Album(artist, albumNameAlias)
 }
@@ -31,7 +38,7 @@ class Album private(artist: Artist, configName: String) {
     trackList.get(n)
 
   def pickupTrack: String =
-    trackList.get(Random.nextInt(trackSize))
+    trackList.get(Album.nextInt(trackSize))
 
   def trackLyricsSize(trackName: String): Int =
     config
@@ -47,7 +54,7 @@ class Album private(artist: Artist, configName: String) {
   def pickupTrackLyrics(trackName: String): String =
     config
       .getStringList(escapeReserveChar(trackName))
-      .get(Random.nextInt(trackLyricsSize(trackName)))
+      .get(Album.nextInt(trackLyricsSize(trackName)))
       .stripMargin
 
   private def escapeReserveChar(target: String): String =

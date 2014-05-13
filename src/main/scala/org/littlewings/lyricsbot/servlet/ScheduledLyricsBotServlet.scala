@@ -1,5 +1,7 @@
 package org.littlewings.lyricsbot.servlet
 
+import java.util.Date
+
 import javax.servlet.http.HttpServlet
 
 import org.quartz.{Job, JobExecutionContext}
@@ -12,8 +14,10 @@ class ScheduledLyricsBotServlet extends HttpServlet {
     //artist.ScheduledConsoleLilyMyuBot
     artist.ScheduledTwitterLilyMyuBot
 
-  override def init(): Unit =
+  override def init(): Unit = {
     scheduledLyricsBot.startJob()
+    println(s"[${new Date}] bot Startup.")
+  }
 
   override def destroy(): Unit =
     scheduledLyricsBot.endJob()

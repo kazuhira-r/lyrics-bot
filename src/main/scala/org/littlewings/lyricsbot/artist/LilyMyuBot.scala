@@ -1,5 +1,9 @@
 package org.littlewings.lyricsbot.artist
 
+import scala.util.{Failure, Success, Try}
+
+import java.util.Date
+
 import org.quartz.{Job, JobExecutionContext}
 
 import org.littlewings.lyricsbot._
@@ -36,7 +40,7 @@ object ScheduledConsoleLilyMyuBot extends LilyMyuBot
 
 class ConsoleLilyMyuJob extends Job {
   override def execute(context: JobExecutionContext): Unit = {
-    println(s"[${new java.util.Date}] execute tweetAction")
+    println(s"[${new Date}] execute tweetAction")
     ScheduledConsoleLilyMyuBot.tweetAction()
   }
 }
@@ -50,11 +54,13 @@ object ScheduledTwitterLilyMyuBot extends LilyMyuBot
 
 class TwitterLilyMyuJob extends Job {
   override def execute(context: JobExecutionContext): Unit = {
-    try {
-      println(s"[${new java.util.Date}] execute tweetAction")
-      ScheduledTwitterLilyMyuBot.tweetAction()
-    } catch {
-      case th: Throwable => th.printStackTrace()
+    val action: () => Unit = () => ScheduledTwitterLilyMyuBot.tweetAction()
+
+    (1 to 3).foldLeft(Try(action())) {
+      case (s @ Success(_), _) => s
+      case (Failure(e), i) =>
+        println(s"[${new Date}] Failure[$i]: $e")
+        Try(action())
     }
   }
 }
