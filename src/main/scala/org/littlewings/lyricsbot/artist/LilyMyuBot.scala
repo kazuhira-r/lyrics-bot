@@ -58,12 +58,13 @@ class TwitterLilyMyuJob extends Job {
 
     (1 to 3).foldLeft(Try(action())) {
       case (s @ Success(_), _) =>
-        println(s"[${new Date}] execute tweetAction")
         s
       case (Failure(e), i) =>
         println(s"[${new Date}] Failure[$i]: $e")
         Thread.sleep(500L)
         Try(action())
     }
+
+    println(s"[${new Date}] execute tweetAction")
   }
 }
