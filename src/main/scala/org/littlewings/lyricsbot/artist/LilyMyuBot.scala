@@ -57,7 +57,9 @@ class TwitterLilyMyuJob extends Job {
     val action: () => Unit = () => ScheduledTwitterLilyMyuBot.tweetAction()
 
     (1 to 3).foldLeft(Try(action())) {
-      case (s @ Success(_), _) => s
+      case (s @ Success(_), _) =>
+        println(s"[${new Date}] execute tweetAction")
+        s
       case (Failure(e), i) =>
         println(s"[${new Date}] Failure[$i]: $e")
         Thread.sleep(500L)
