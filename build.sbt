@@ -10,7 +10,7 @@ scalacOptions ++= Seq("-Xlint", "-deprecation", "-unchecked", "-feature")
 
 incOptions := incOptions.value.withNameHashing(true)
 
-javacOptions ++= Seq("-source", "1.6", "-target", "1.6")
+javacOptions ++= Seq("-source", "1.7", "-target", "1.7")
 
 seq(webSettings :_*)
 
@@ -19,8 +19,7 @@ artifactName in packageWar := {
     artifact.name + "." + artifact.extension
 }
 
-//val jettyVersion = "9.0.0.v20130308"
-val jettyVersion = "8.0.4.v20111024"
+val jettyVersion = "9.0.0.v20130308"
 
 libraryDependencies ++= Seq(
   "org.eclipse.jetty" % "jetty-webapp" % jettyVersion % "container",
