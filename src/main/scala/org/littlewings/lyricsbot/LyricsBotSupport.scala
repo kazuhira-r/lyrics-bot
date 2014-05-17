@@ -7,13 +7,22 @@ trait LyricsBotSupport extends LyricsBot {
     LyricsFormatter.format(album, trackName, lyrics)
 
   def pickupLyrics(formatter: (Artist, Album, String, String) => String): String = {
-    val album = Album.fromConfig(artist, artist.pickupAlbum)
+    val album = Album.fromConfig(artist, pickupAlbum(artist))
 
-    val track = album.pickupTrack
-    val lyrics = album.pickupTrackLyrics(track)
+    val track = pickupTrack(album)
+    val lyrics = pickupTrackLyrics(album, track)
 
     formatter(artist, album, track, lyrics)
   }
+
+  protected def pickupAlbum(artist: Artist): String =
+    artist.pickupAlbum
+
+  protected def pickupTrack(album: Album): String =
+    album.pickupTrack
+
+  protected def pickupTrackLyrics(album: Album, trackName: String): String =
+    album.pickupTrackLyrics(trackName)
 }
 
 trait StandAloneLyricsBotSupport extends LyricsBotSupport {

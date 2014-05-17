@@ -31,9 +31,6 @@ class Artist private(configName: String) {
   private def albums: java.util.List[String] =
     config.getStringList("albums")
 
-  def album(n: String): java.util.List[String] = 
-    config.getStringList("albums")
-
   def albumSize: Int =
     albums.size
 
