@@ -44,7 +44,7 @@ trait ReductionLyricsBotSupport extends LyricsBotSupport {
     val (key, lyrics) = lyricsStorage.toIndexedSeq.apply(targetIndex)
     lyricsStorage -= key
 
-    println(s"[new Date] choise[$key], remain size[${lyricsStorage.size}]")
+    println(s"[${new Date}] choise[$key], remain size[${lyricsStorage.size}]")
 
     formatter(artist, lyrics.album, lyrics.track, lyrics.lyrics)
   }
