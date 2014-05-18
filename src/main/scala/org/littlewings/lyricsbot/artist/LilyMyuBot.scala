@@ -47,28 +47,10 @@ class ConsoleLilyMyuJob extends Job {
 
 object ScheduledTwitterLilyMyuBot extends LilyMyuBot
                                   with TwitterLyricsBotSupport
-                                  with ScheduledLyricsBotSupport[TwitterLilyMyuJob] {
-  private var beforeChoiseAlbum: String = _
-
+                                  with ScheduledLyricsBotSupport[TwitterLilyMyuJob]
+                                  with ReductionLyricsBotSupport {
   override protected def jobClass: Class[TwitterLilyMyuJob] =
     classOf[TwitterLilyMyuJob]
-
-  override protected def pickupAlbum(artist: Artist): String = {
-    val current =
-      Iterator
-        .continually(artist.pickupAlbum)
-        .find { pick =>
-          if (beforeChoiseAlbum != pick) {
-            true
-          } else {
-            println(s"[${new Date}] duplicate Album[$pick]")
-            false
-          }
-        }
-
-    beforeChoiseAlbum = current.get
-    beforeChoiseAlbum
-  }
 }
 
 class TwitterLilyMyuJob extends Job {

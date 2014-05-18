@@ -13,7 +13,7 @@ class ArtistSpec extends FunSpec {
 
       artist.albumSize should be (2)
 
-      artist.album("album1") should not be (null)
+      artist.album("album1") should not be (None)
 
       artist.album(1) should be ("album2")
     }
