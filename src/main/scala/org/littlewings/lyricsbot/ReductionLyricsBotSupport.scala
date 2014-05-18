@@ -32,7 +32,6 @@ trait ReductionLyricsBotSupport extends LyricsBotSupport {
             val lyrics = album.trackLyrics(trackName, trackLyricsIndex)
 
             lyricsStorage += (s"${albumIndex}:${trackIndex}:${trackLyricsIndex}" -> Lyrics(album, trackName, lyrics))
-            println(s"[${new Date}] load ${albumIndex}:${trackIndex}:${trackLyricsIndex}")
           }
         }
       }
