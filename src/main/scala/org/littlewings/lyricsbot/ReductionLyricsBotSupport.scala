@@ -36,7 +36,7 @@ trait ReductionLyricsBotSupport extends LyricsBotSupport {
         }
       }
 
-      println(s"[${new Date}] all tracks loaded, size[$lyricsStorage.size]")
+      println(s"[${new Date}] all tracks loaded, size[${lyricsStorage.size}]")
     }
 
     val targetIndex = ReductionLyricsBotSupport.nextInt(lyricsStorage.size)
