@@ -1,5 +1,6 @@
 package org.littlewings.lyricsbot
 
+import scala.collection.JavaConverters._
 import scala.util.Random
 
 import java.security.SecureRandom
@@ -33,6 +34,9 @@ class Artist private(configName: String) {
 
   def albumSize: Int =
     albums.size
+
+  def album(name: String): Option[String] =
+    albums.asScala.find(_ == name)
 
   def album(n: Int): String =
     albums.get(n)
