@@ -1,8 +1,8 @@
 name := "lyrics-bot"
 
-version := "0.1.2"
+version := "0.1.3"
 
-scalaVersion := "2.11.0"
+scalaVersion := "2.11.1"
 
 organization := "org.littlewings"
 
@@ -28,5 +28,5 @@ libraryDependencies ++= Seq(
   "com.typesafe" % "config" % "1.2.1",
   "org.quartz-scheduler" % "quartz" % "2.2.1",
   "javax.servlet" % "javax.servlet-api" % "3.0.1" % "provided",
-  "org.scalatest" %% "scalatest" % "2.1.5" % "test"
+  "org.scalatest" %% "scalatest" % "2.1.7" % "test"
 )

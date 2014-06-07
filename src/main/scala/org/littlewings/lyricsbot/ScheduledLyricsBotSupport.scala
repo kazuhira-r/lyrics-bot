@@ -1,5 +1,7 @@
 package org.littlewings.lyricsbot
 
+import java.util.TimeZone
+
 import org.quartz.{Job, JobExecutionContext, Scheduler}
 import org.quartz.JobBuilder._
 import org.quartz.TriggerBuilder._
@@ -35,8 +37,10 @@ trait ScheduledLyricsBotSupport[T <: Job] extends ScheduledLyricsBot
     val trigger =
       newTrigger
         .withIdentity(s"${artistNameAlias}-Trigger")
-        .withSchedule(cronSchedule(artist.tweetScheduleFromAlbum))
-        .forJob(job)
+        .withSchedule {
+          cronSchedule(artist.tweetScheduleFromAlbum)
+            .inTimeZone(TimeZone.getTimeZone("Asia/Tokyo"))
+         }.forJob(job)
         .startNow
         .build
 
