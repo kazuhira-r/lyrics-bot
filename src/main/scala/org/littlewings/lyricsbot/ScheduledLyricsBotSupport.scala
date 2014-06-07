@@ -40,7 +40,8 @@ trait ScheduledLyricsBotSupport[T <: Job] extends ScheduledLyricsBot
         .withSchedule {
           cronSchedule(artist.tweetScheduleFromAlbum)
             .inTimeZone(TimeZone.getTimeZone("Asia/Tokyo"))
-         }.forJob(job)
+         }
+        .forJob(job)
         .startNow
         .build
 
