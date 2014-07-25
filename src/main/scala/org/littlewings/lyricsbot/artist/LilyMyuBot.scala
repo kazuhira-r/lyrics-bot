@@ -9,7 +9,7 @@ import org.quartz.{Job, JobExecutionContext}
 import org.littlewings.lyricsbot._
 
 abstract class LilyMyuBot extends LyricsBotSupport {
-  val artistNameAlias: String = "lily_myu"
+  val artistNameAlias: String = "lilymyu"
 }
 
 object ConsoleLilyMyuBot extends LilyMyuBot

@@ -1,8 +1,8 @@
-name := "lyrics-bot"
+  name := "lyrics-bot"
 
 version := "0.1.4"
 
-scalaVersion := "2.11.1"
+scalaVersion := "2.11.2"
 
 organization := "org.littlewings"
 
