@@ -1,6 +1,6 @@
 name := "lyrics-bot"
 
-version := "0.1.6"
+version := "0.1.7"
 
 scalaVersion := "2.11.2"
 
@@ -12,7 +12,7 @@ incOptions := incOptions.value.withNameHashing(true)
 
 javacOptions ++= Seq("-source", "1.7", "-target", "1.7")
 
-seq(webSettings :_*)
+jetty()
 
 artifactName in packageWar := {
   (scalaVersion: ScalaVersion, module: ModuleID, artifact: Artifact) =>

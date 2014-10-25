@@ -18,7 +18,7 @@ object Artist {
 }
 
 class Artist private(configName: String) {
-  val config: Config = ConfigFactory.load(s"data/$configName").getConfig("artist")
+  private val config: Config = ConfigFactory.load(s"data/$configName").getConfig("artist")
 
   def name: String =
     config.getString("name")

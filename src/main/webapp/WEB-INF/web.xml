@@ -9,10 +9,21 @@
     <load-on-startup>1</load-on-startup>
   </servlet>
 
+  <servlet>
+    <servlet-name>PingServlet</servlet-name>
+    <servlet-class>org.littlewings.lyricsbot.servlet.PingServlet</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+
   <!--
   <servlet-mapping>
     <servlet-name>ScheduledLyricsBotServlet</servlet-name>
     <url-pattern>/start</url-pattern>
   </servlet-mapping>
   -->
+
+  <servlet-mapping>
+    <servlet-name>PingServlet</servlet-name>
+    <url-pattern>/ping</url-pattern>
+  </servlet-mapping>
 </web-app>
