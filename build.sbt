@@ -10,6 +10,8 @@ scalacOptions ++= Seq("-Xlint", "-deprecation", "-unchecked", "-feature")
 
 incOptions := incOptions.value.withNameHashing(true)
 
+updateOptions := updateOptions.value.withCachedResolution(true)
+
 javacOptions ++= Seq("-source", "1.7", "-target", "1.7")
 
 jetty()
@@ -28,5 +30,5 @@ libraryDependencies ++= Seq(
   "com.typesafe" % "config" % "1.2.1",
   "org.quartz-scheduler" % "quartz" % "2.2.1",
   "javax.servlet" % "javax.servlet-api" % "3.0.1" % "provided",
-  "org.scalatest" %% "scalatest" % "2.2.2" % "test"
+  "org.scalatest" %% "scalatest" % "2.2.3" % "test"
 )
