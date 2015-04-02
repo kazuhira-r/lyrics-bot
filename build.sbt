@@ -26,7 +26,7 @@ val jettyVersion = "9.0.0.v20130308"
 libraryDependencies ++= Seq(
   "org.eclipse.jetty" % "jetty-webapp" % jettyVersion % "container",
   "org.eclipse.jetty" % "jetty-plus"   % jettyVersion % "container",
-  "org.twitter4j" % "twitter4j-core" % "4.0.2",
+  "org.twitter4j" % "twitter4j-core" % "4.0.3",
   "com.typesafe" % "config" % "1.2.1",
   "org.quartz-scheduler" % "quartz" % "2.2.1",
   "javax.servlet" % "javax.servlet-api" % "3.0.1" % "provided",
