@@ -11,17 +11,20 @@ abstract class LilyMyuBot extends LyricsBotSupport {
   val artistNameAlias: String = "lilymyu"
 }
 
-object ConsoleLilyMyuBot extends LilyMyuBot
-with StandAloneLyricsBotSupport
-with ConsoleLyricsBotSupport
+object ConsoleLilyMyuBot
+  extends LilyMyuBot
+  with StandAloneLyricsBotSupport
+  with ConsoleLyricsBotSupport
 
-object TwitterLilyMyuBot extends LilyMyuBot
-with StandAloneLyricsBotSupport
-with TwitterLyricsBotSupport
+object TwitterLilyMyuBot
+  extends LilyMyuBot
+  with StandAloneLyricsBotSupport
+  with TwitterLyricsBotSupport
 
-object ScheduledConsoleLilyMyuBot extends LilyMyuBot
-with ConsoleLyricsBotSupport
-with ScheduledLyricsBotSupport[ConsoleLilyMyuJob] {
+object ScheduledConsoleLilyMyuBot
+  extends LilyMyuBot
+  with ConsoleLyricsBotSupport
+  with ScheduledLyricsBotSupport[ConsoleLilyMyuJob] {
   override protected def jobClass: Class[ConsoleLilyMyuJob] =
     classOf[ConsoleLilyMyuJob]
 
