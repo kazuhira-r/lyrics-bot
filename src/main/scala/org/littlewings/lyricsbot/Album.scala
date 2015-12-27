@@ -1,10 +1,10 @@
 package org.littlewings.lyricsbot
 
-import scala.util.Random
-
 import java.security.SecureRandom
 
 import com.typesafe.config.{Config, ConfigFactory}
+
+import scala.util.Random
 
 object Album {
   private val RANDOM: Random = new Random(new SecureRandom)
@@ -64,5 +64,5 @@ class Album private(artist: Artist, configName: String) {
           "\"" + c + "\""
         else
           c.toString
-    }
+      }
 }

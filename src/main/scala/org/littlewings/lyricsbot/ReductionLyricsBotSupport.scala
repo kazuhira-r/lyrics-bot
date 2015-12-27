@@ -1,11 +1,10 @@
 package org.littlewings.lyricsbot
 
-import scala.annotation.tailrec
-import scala.collection.immutable.TreeMap
-import scala.util.Random
-
 import java.security.SecureRandom
 import java.util.Date
+
+import scala.collection.immutable.TreeMap
+import scala.util.Random
 
 object ReductionLyricsBotSupport {
   private val RANDOM: Random = new Random(new SecureRandom)

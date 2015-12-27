@@ -8,14 +8,14 @@ class ArtistSpec extends FunSpec {
     it("read fromConfig") {
       val artist = Artist.fromConfig("dummy_artist")
 
-      artist.name should be ("Dummy Artist")
-      artist.tweetScheduleFromAlbum should be ("0 */3 * * * ?")
+      artist.name should be("Dummy Artist")
+      artist.tweetScheduleFromAlbum should be("0 */3 * * * ?")
 
-      artist.albumSize should be (2)
+      artist.albumSize should be(2)
 
       artist.album("album1") should not be (None)
 
-      artist.album(1) should be ("album2")
+      artist.album(1) should be("album2")
     }
   }
 }

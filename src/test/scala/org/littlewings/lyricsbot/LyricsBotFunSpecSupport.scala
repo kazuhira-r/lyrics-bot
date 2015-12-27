@@ -1,7 +1,7 @@
 package org.littlewings.lyricsbot
 
-import org.scalatest.{FunSpec, GivenWhenThen}
 import org.scalatest.Matchers._
+import org.scalatest.{FunSpec, GivenWhenThen}
 
 object LyricsBotFunSpecSupport {
   val TWEET_MAX_LENGTH: Int = 140

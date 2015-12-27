@@ -1,18 +1,17 @@
 package org.littlewings.lyricsbot.servlet
 
 import java.io.IOException
-import java.net.{ URL, HttpURLConnection } 
-import java.util.{ Date, TimeZone }
-
+import java.net.{HttpURLConnection, URL}
+import java.util.{Date, TimeZone}
 import javax.servlet.ServletException
-import javax.servlet.http.{ HttpServlet, HttpServletRequest, HttpServletResponse }
+import javax.servlet.http.{HttpServlet, HttpServletRequest, HttpServletResponse}
 
 import com.typesafe.config.{Config, ConfigFactory}
-import org.quartz.{Job, JobExecutionContext, Scheduler}
+import org.quartz.CronScheduleBuilder._
 import org.quartz.JobBuilder._
 import org.quartz.TriggerBuilder._
-import org.quartz.CronScheduleBuilder._
 import org.quartz.impl.StdSchedulerFactory
+import org.quartz.{Job, JobExecutionContext, Scheduler}
 
 class PingServlet extends HttpServlet {
   private val pingJob: PingJob = new PingJob
@@ -77,7 +76,7 @@ class PingJob extends Job {
         .withSchedule {
           cronSchedule(PingJob.executeSchedule)
             .inTimeZone(TimeZone.getTimeZone("Asia/Tokyo"))
-         }
+        }
         .forJob(job)
         .startNow
         .build

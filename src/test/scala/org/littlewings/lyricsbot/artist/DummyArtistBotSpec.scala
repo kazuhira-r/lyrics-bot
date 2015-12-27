@@ -1,7 +1,5 @@
 package org.littlewings.lyricsbot.artist
 
-import org.littlewings.lyricsbot._
-
 import org.littlewings.lyricsbot.LyricsBotFunSpecSupport
 
 class DummyArtistBotSpec extends LyricsBotFunSpecSupport {

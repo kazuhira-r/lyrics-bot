@@ -1,28 +1,27 @@
 package org.littlewings.lyricsbot.artist
 
-import scala.util.{Failure, Success, Try}
-
 import java.util.Date
 
+import org.littlewings.lyricsbot._
 import org.quartz.{Job, JobExecutionContext}
 
-import org.littlewings.lyricsbot._
+import scala.util.{Failure, Success, Try}
 
 abstract class LilyMyuBot extends LyricsBotSupport {
   val artistNameAlias: String = "lilymyu"
 }
 
 object ConsoleLilyMyuBot extends LilyMyuBot
-                         with StandAloneLyricsBotSupport
-                         with ConsoleLyricsBotSupport
+with StandAloneLyricsBotSupport
+with ConsoleLyricsBotSupport
 
 object TwitterLilyMyuBot extends LilyMyuBot
-                         with StandAloneLyricsBotSupport
-                         with TwitterLyricsBotSupport
+with StandAloneLyricsBotSupport
+with TwitterLyricsBotSupport
 
 object ScheduledConsoleLilyMyuBot extends LilyMyuBot
-                                  with ConsoleLyricsBotSupport
-                                  with ScheduledLyricsBotSupport[ConsoleLilyMyuJob] {
+with ConsoleLyricsBotSupport
+with ScheduledLyricsBotSupport[ConsoleLilyMyuJob] {
   override protected def jobClass: Class[ConsoleLilyMyuJob] =
     classOf[ConsoleLilyMyuJob]
 
@@ -45,10 +44,11 @@ class ConsoleLilyMyuJob extends Job {
   }
 }
 
-object ScheduledTwitterLilyMyuBot extends LilyMyuBot
-                                  with TwitterLyricsBotSupport
-                                  with ScheduledLyricsBotSupport[TwitterLilyMyuJob]
-                                  with ReductionLyricsBotSupport {
+object ScheduledTwitterLilyMyuBot
+  extends LilyMyuBot
+  with TwitterLyricsBotSupport
+  with ScheduledLyricsBotSupport[TwitterLilyMyuJob]
+  with ReductionLyricsBotSupport {
   override protected def jobClass: Class[TwitterLilyMyuJob] =
     classOf[TwitterLilyMyuJob]
 }
@@ -58,7 +58,7 @@ class TwitterLilyMyuJob extends Job {
     val action: () => Unit = () => ScheduledTwitterLilyMyuBot.tweetAction()
 
     (1 to 3).foldLeft(Try(action())) {
-      case (s @ Success(_), _) =>
+      case (s@Success(_), _) =>
         s
       case (Failure(e), i) =>
         println(s"[${new Date}] Failure[$i]: $e")

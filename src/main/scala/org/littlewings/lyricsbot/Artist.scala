@@ -1,11 +1,11 @@
 package org.littlewings.lyricsbot
 
-import scala.collection.JavaConverters._
-import scala.util.Random
-
 import java.security.SecureRandom
 
 import com.typesafe.config.{Config, ConfigFactory}
+
+import scala.collection.JavaConverters._
+import scala.util.Random
 
 object Artist {
   private val RANDOM: Random = new Random(new SecureRandom)
