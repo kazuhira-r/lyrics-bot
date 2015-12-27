@@ -62,6 +62,7 @@ class TwitterLilyMyuJob extends Job {
         s
       case (Failure(e), i) =>
         println(s"[${new Date}] Failure[$i]: $e")
+        e.printStackTrace()
         Thread.sleep(500L)
         Try(action())
     }

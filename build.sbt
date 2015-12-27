@@ -18,7 +18,8 @@ jetty()
 
 artifactName in packageWar := {
   (scalaVersion: ScalaVersion, module: ModuleID, artifact: Artifact) =>
-    artifact.name + "." + artifact.extension
+    //artifact.name + "." + artifact.extension
+    "ROOT" + "." + artifact.extension
 }
 
 val jettyVersion = "9.0.0.v20130308"
