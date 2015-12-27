@@ -21,11 +21,13 @@ class PingServlet extends HttpServlet {
   override protected def doGet(req: HttpServletRequest, res: HttpServletResponse): Unit =
     res.getWriter.println("OK")
 
+  /*
   override def init(): Unit =
     pingJob.startJob()
 
   override def destroy(): Unit =
     pingJob.endJob()
+    */
 }
 
 object PingJob {
