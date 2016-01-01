@@ -8,7 +8,8 @@ import org.littlewings.lyricsbot.{ScheduledLyricsBot, artist}
 class ScheduledLyricsBotServlet extends HttpServlet {
   private val scheduledLyricsBot: ScheduledLyricsBot =
   //artist.ScheduledConsoleLilyMyuBot
-    artist.ScheduledTwitterLilyMyuBot
+  //artist.ScheduledTwitterLilyMyuBot
+    artist.ScheduledTwitterCaratBot
 
   override def init(): Unit = {
     scheduledLyricsBot.startJob()

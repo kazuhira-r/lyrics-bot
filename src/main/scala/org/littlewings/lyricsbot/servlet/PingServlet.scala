@@ -18,8 +18,10 @@ class PingServlet extends HttpServlet {
 
   @throws(classOf[IOException])
   @throws(classOf[ServletException])
-  override protected def doGet(req: HttpServletRequest, res: HttpServletResponse): Unit =
+  override protected def doGet(req: HttpServletRequest, res: HttpServletResponse): Unit = {
     res.getWriter.println("OK")
+    println("OK")
+  }
 
   /*
   override def init(): Unit =
