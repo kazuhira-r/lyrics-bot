@@ -1,8 +1,8 @@
 name := "lyrics-bot"
 
-version := "0.1.9"
+version := "0.2.0"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"
 
 organization := "org.littlewings"
 
@@ -18,14 +18,20 @@ artifactName := {
     "ROOT" + "." + artifact.extension
 }
 
-val jettyVersion = "9.0.0.v20130308"
+enablePlugins(JettyPlugin)
+
+webappWebInfClasses := true
+
+val twitter4jVersion = "4.0.4"
+val typesafeConfigVersion = "1.3.0"
+val quartzVersion = "2.2.3"
+val servletApiVersion = "3.1.0"
+val scalaTestVersion = "3.0.0"
 
 libraryDependencies ++= Seq(
-  "org.twitter4j" % "twitter4j-core" % "4.0.4",
-  "com.typesafe" % "config" % "1.3.0",
-  "org.quartz-scheduler" % "quartz" % "2.2.2",
-  "javax.servlet" % "javax.servlet-api" % "3.1.0" % "provided",
-  "org.scalatest" %% "scalatest" % "2.2.5" % "test"
+  "org.twitter4j" % "twitter4j-core" % twitter4jVersion % Compile,
+  "com.typesafe" % "config" % typesafeConfigVersion % Compile,
+  "org.quartz-scheduler" % "quartz" % quartzVersion % Compile,
+  "javax.servlet" % "javax.servlet-api" % servletApiVersion % Provided,
+  "org.scalatest" %% "scalatest" % scalaTestVersion % Test
 )
-
-enablePlugins(JettyPlugin)
