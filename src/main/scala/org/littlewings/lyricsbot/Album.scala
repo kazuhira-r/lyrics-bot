@@ -17,7 +17,7 @@ object Album {
 }
 
 class Album private(artist: Artist, configName: String) {
-  val escapeTargetChars: Set[Char] = Set(':', ',', '&', '.', '!')
+  val escapeTargetChars: Set[Char] = Set(':', ',', '&', '.', '!', '#')
 
   val config: Config =
     ConfigFactory.load(s"data/${artist.alias}/albums/${configName}").getConfig("album")
